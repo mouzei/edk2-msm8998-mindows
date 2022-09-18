@@ -660,20 +660,9 @@ VOID EFIAPI PlatformBootManagerAfterConsole(VOID)
   //
   EfiBootManagerRefreshAllBootOption();
 
-  //
-  // Register UEFI Shell
-  //
-  PlatformRegisterFvBootOption(
-      &gUefiShellFileGuid, L"UEFI Shell", LOAD_OPTION_ACTIVE);
-
-#ifdef ENABLE_LINUX_SIMPLE_MASS_STORAGE
-  //
-  // Register Built-in Linux Kernel
-  //
   PlatformRegisterFvBootOption(
       &gLinuxSimpleMassStorageGuid, L"USB Attached SCSI (UAS) Storage", LOAD_OPTION_ACTIVE);
-#endif
-}
+
 
 /**
   This function is called each second during the boot manager waits the
